@@ -1,4 +1,4 @@
-# SingerBuddy
+# SingerPal
 
 A web-based application for displaying and playing musical scores encoded in [Music Encoding Initiative (MEI)](https://www.music-encoding.org/) format. On startup, it loads Thomas Tallis's *O Lord, Grant Them Peace* as a demonstration score.
 
@@ -11,7 +11,10 @@ A web-based application for displaying and playing musical scores encoded in [Mu
 - **Note Play on Click** — click any note to hear its pitch
 - **Note Highlighting** — currently playing notes are highlighted in red during playback
 - **Hover Highlighting** — hover over any note to highlight it in blue
-- **Pitch Tracking** — real-time microphone pitch detection for tuning and singing practice
+- **Pitch Tracking** — real-time microphone pitch detection for tuning and singing practice, with visual feedback:
+  - **Arrow indicator** — `↑` when sharp, `↓` when flat (displayed next to the detected note)
+  - **Colored background** — the pitch info text highlights with a colored pill: red for sharp, blue for flat, green for in-tune
+  - **Button glow** — the microphone button changes color with a matching glow to reflect pitch accuracy
 - **Spectrum Analyzer** — live FFT frequency visualization with dominant note display
 - **File Loading** — load any `.mei` file directly from your local filesystem
 

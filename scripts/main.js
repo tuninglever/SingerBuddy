@@ -147,6 +147,12 @@ function setupVoiceVolumes(doc) {
       instrDef = staff.ownerDocument.createElement('instrDef')
       instrDef.setAttribute('xml:id', iid)
       instrDef.setAttribute('midi.volume', '100%')
+      if (label) {
+        const voiceLabels = ['Soprano', 'Alto', 'Tenor', 'Baritone', 'Bass']
+        if (voiceLabels.includes(label.textContent)) {
+          instrDef.setAttribute('midi.instrnum', '52')
+        }
+      }
       staff.appendChild(instrDef)
     }
   })
@@ -194,6 +200,13 @@ function applyVolumeChanges() {
     if (!instrDef) {
       instrDef = mei.createElement('instrDef')
       instrDef.setAttribute('xml:id', genHashId())
+      const label = staff.querySelector('label')
+      if (label) {
+        const voiceLabels = ['Soprano', 'Alto', 'Tenor', 'Baritone', 'Bass']
+        if (voiceLabels.includes(label.textContent)) {
+          instrDef.setAttribute('midi.instrnum', '52')
+        }
+      }
       staff.appendChild(instrDef)
     }
     instrDef.setAttribute('midi.volume', `${percent}%`)
@@ -314,16 +327,48 @@ document.addEventListener('DOMContentLoaded', () => {
           const result = estimateAudio(spectrumAnalyser)
           domFreq.textContent = `${result.freq.toFixed(1)} Hz`
           domMidi.textContent = `MIDI ${result.midi}`
-          domNote.textContent = result.note
+
+          const expectedFreq = 440 * Math.pow(2, (result.midi - 69) / 12)
+          const cents = 1200 * Math.log2(result.freq / expectedFreq)
+          const threshold = 25
+
+          domFreq.className = 'pitch-info'
+          domMidi.className = 'pitch-info'
+          domNote.className = 'pitch-info'
+          pitchBtn.classList.remove('pitch-sharp', 'pitch-flat', 'pitch-in')
+
+          if (Math.abs(cents) < threshold) {
+            domNote.textContent = result.note
+            domFreq.classList.add('pitch-in')
+            domMidi.classList.add('pitch-in')
+            domNote.classList.add('pitch-in')
+            pitchBtn.classList.add('pitch-in')
+          } else if (cents > 0) {
+            domNote.textContent = `${result.note} ↑`
+            domFreq.classList.add('pitch-sharp')
+            domMidi.classList.add('pitch-sharp')
+            domNote.classList.add('pitch-sharp')
+            pitchBtn.classList.add('pitch-sharp')
+          } else {
+            domNote.textContent = `${result.note} ↓`
+            domFreq.classList.add('pitch-flat')
+            domMidi.classList.add('pitch-flat')
+            domNote.classList.add('pitch-flat')
+            pitchBtn.classList.add('pitch-flat')
+          }
         }
         trackPitch()
       } else {
         pitchTrackingOff()
         cancelAnimationFrame(pitchDrawId)
         pitchDrawId = 0
-        document.getElementById('domFreq').textContent = ''
-        document.getElementById('domMidi').textContent = ''
-        document.getElementById('domNote').textContent = ''
+        domFreq.textContent = ''
+        domMidi.textContent = ''
+        domNote.textContent = ''
+        domFreq.className = 'pitch-info'
+        domMidi.className = 'pitch-info'
+        domNote.className = 'pitch-info'
+        pitchBtn.classList.remove('pitch-sharp', 'pitch-flat', 'pitch-in')
       }
     })
 

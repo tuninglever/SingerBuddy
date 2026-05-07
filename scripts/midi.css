@@ -1,0 +1,222 @@
+/*
+ * MEI Score Player — Styles
+ * Copyright (c) 2025 Alfred Leung
+ * Licensed under the MIT License — see LICENSE
+ */
+
+/* ---------- Layout ---------- */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+#notation {
+    flex: 1;
+    min-height: 200px;
+    overflow-y: auto;
+}
+
+/* ---------- Score note highlighting ---------- */
+
+.note.playing {
+    fill: #ff0000;
+    color: #ff0000;
+}
+
+.note.hover-highlight {
+    fill: #4fc3f7;
+    color: #4fc3f7;
+}
+
+/* ---------- Toolbar ---------- */
+
+#toolbar {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    background: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+}
+
+#toolbar > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    flex-shrink: 0;
+    color: white;
+    background: #5c6bc0;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+#toolbar > button:hover {
+    background: #3f51b5;
+}
+
+#toggleMenu {
+    background: transparent;
+    color: #333;
+}
+#toggleMenu:hover {
+    background: #e0e0e0;
+    color: #000;
+}
+
+#toolbar button svg {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+.pitch-info {
+    font-size: 0.85rem;
+    color: #555;
+    margin-left: 0.25rem;
+    white-space: nowrap;
+}
+
+/* ---------- Menu panel ---------- */
+
+#menuPanel {
+    display: none;
+    background: #ffffff;
+    border: 1px solid #000000;
+    border-radius: 1rem 1rem 1rem 1rem;
+    animation: fadeIn 0.3s ease;
+    position: fixed;
+    padding: 2px 2px 2px 40px;
+    top: 40px;
+    left: 40px;
+    width: 30%;
+    z-index: 1000;
+}
+
+#closeMenu {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 0.35rem;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+#closeMenu:hover {
+    background: #e0e0e0;
+    color: #000;
+}
+
+#closeMenu svg {
+    width: 1.15rem;
+    height: 1.15rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+#tempoControls {
+    margin-right: 40px;
+    padding: 10px 10px 10px 10px;
+    background-color: #efefef;
+}
+
+#tempoBar {
+    position: relative;
+    left: 40px;
+}
+
+#voiceControls {
+    margin-right: 40px;
+    padding: 10px 10px 10px 10px;
+    background-color: #efefef;
+}
+
+#voiceVolumes {
+    position: relative;
+    left: 40px;
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0rem;
+}
+
+.voiceVol {
+    text-align: left;
+    height: 24px;
+}
+
+.voiceRange {
+    height: 24px;
+    width: 140px;
+}
+
+#spectrumStart {
+    height: 24px;
+}
+
+#spectrumCanvas {
+    margin-right: 40px;
+    padding: 10px 10px 10px 10px;
+    background-color: #efefef;
+    height: 200px;
+    width: 90%;
+    display: block;
+    margin-top: 20px;
+}
+
+/* ---------- Footer ---------- */
+
+#acknowledgements {
+    padding: 0.75rem 1.5rem;
+    margin-top: auto;
+    font-size: 0.8rem;
+    color: #888;
+    border-top: 1px solid #e0e0e0;
+    flex-shrink: 0;
+}
+
+#acknowledgements p {
+    margin: 0 0 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+#acknowledgements ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#acknowledgements li {
+    margin-bottom: 0.15rem;
+}
+
+#acknowledgements a {
+    color: #5c6bc0;
+    text-decoration: none;
+}
+
+#acknowledgements a:hover {
+    text-decoration: underline;
+}

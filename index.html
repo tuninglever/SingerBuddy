@@ -1,0 +1,102 @@
+<!--
+  MEI Score Player
+  Copyright (c) 2025 Alfred Leung
+  Licensed under the MIT License — see LICENSE
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>MEI Score Player</title>
+        <link href="scripts/midi.css" rel="stylesheet" type="text/css" />
+        <!-- Verovio MEI rendering engine -->
+        <script src="scripts/verovio-toolkit-wasm.js" defer></script>
+        <!-- JavaScript MIDI player -->
+        <script src='scripts/midi.js'></script>
+        <!-- SoundFont Player -->
+        <script src="./scripts/soundfont-player.js"></script>
+    </head>
+    <body>
+        <!-- Toolbar: settings, playback, navigation, file, pitch -->
+        <div id="toolbar">
+            <button id="toggleMenu" title="Settings">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            </button>
+            <button id="playMIDI" title="Play/Pause">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </button>
+            <button id="stopMIDI" title="Stop">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+            </button>
+            <button id="prevPage" title="Previous Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button id="nextPage" title="Next Page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <button id="pickBtn" title="Open MEI File">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+            </button>
+            <button id="pitchBtn" title="Toggle Pitch Tracking">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+            </button>
+            <input type="file" id="fileInput" style="display:none;" accept=".mei"/>
+            <div id="domFreq" class="pitch-info"></div>
+            <div id="domMidi" class="pitch-info"></div>
+            <div id="domNote" class="pitch-info"></div>
+        </div>
+
+        <!-- Settings menu panel (initially hidden) -->
+        <nav id="menuPanel">
+            <button id="closeMenu" title="Close">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <h3>Tempo</h3>
+            <div id="tempoControls">
+                <div id="tempoBar">
+                    <input type="range" id="tempoSlider" min="40" max="180" step="1" value="120">
+                    <label for="tempoSlider"><span id="tempoValue"></span></label>
+                </div>
+            </div>
+            <h3>Voice Volumes</h3>
+            <div id="voiceControls">
+                <div id="voiceVolumes">
+                </div>
+            </div>
+            <h3>Devices</h3>
+            <div id="micSelect">
+            </div>
+            <h3>Spectrum</h3>
+            <div id="Spectrum">
+                <button id="spectrumStart">start</button>
+                <canvas id="spectrumCanvas"></canvas>
+                <div id="info">
+                    <br/>
+                    <strong>Frequency:</strong> <span id="specFreq">--</span> Hz |
+                    <strong>MIDI:</strong> <span id="specMidi">--</span>
+                    <strong>Note:</strong> <span id="specNote">--</span>
+                </div>
+            </div>
+            <div>
+                <h3>&nbsp;</h3>
+            </div>
+        </nav>
+
+        <!-- Score rendering area -->
+        <div id="notation"></div>
+
+        <!-- Acknowledgements footer -->
+        <footer id="acknowledgements">
+            <p>Powered by</p>
+            <ul>
+                <li><a href="https://github.com/rism-digital/verovio" target="_blank" rel="noopener">Verovio</a> — MEI rendering, by the RISM Digital Center</li>
+                <li><a href="https://github.com/gleitz/midi-js-soundfonts" target="_blank" rel="noopener">Pre-rendered SoundFonts</a> — by Benjamin Gleitzman</li>
+                <li><a href="https://github.com/danigb/soundfont-player" target="_blank" rel="noopener">SoundFont Player</a> — by Daniel García Buhrer</li>
+            </ul>
+        </footer>
+
+        <!-- Application entry point -->
+        <script type="module" src="scripts/main.js"></script>
+    </body>
+</html>

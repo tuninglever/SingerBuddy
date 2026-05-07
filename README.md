@@ -1,4 +1,4 @@
-# SingerPal
+# SingerBuddy
 
 A web-based application for displaying and playing musical scores encoded in [Music Encoding Initiative (MEI)](https://www.music-encoding.org/) format. On startup, it loads Thomas Tallis's *O Lord, Grant Them Peace* as a demonstration score.
 

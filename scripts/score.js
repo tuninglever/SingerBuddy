@@ -18,6 +18,11 @@ const PlayState = Object.freeze({
 
 let currentState = PlayState.STOPPED
 
+/** Get the current playback state */
+export function getCurrentState() {
+  return currentState
+}
+
 /**
  * Toggle play / pause / resume based on current state.
  * @param {string} midiString - data URL of the MIDI content

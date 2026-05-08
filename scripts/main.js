@@ -13,7 +13,7 @@
  */
 
 import { initAudio, pitchTrackingOn, pitchTrackingOff, isPitchTracking, estimateAudio, spectrumAnalyser } from './audio.js'
-import { playMIDI, stopMIDI, setupPage, genHashId } from './score.js'
+import { playMIDI, stopMIDI, setupPage, genHashId, getCurrentState } from './score.js'
 import { listMicrophones, startSpectrum, stopSpectrum } from './spectrum.js'
 import { voiceMap, volumeChangedSet, volumeChangedGet, meiDoc } from './state.js'
 
@@ -27,9 +27,21 @@ let pageCount = 0
 const fileInput = document.getElementById('fileInput')
 const pickBtn   = document.getElementById('pickBtn')
 const pitchBtn  = document.getElementById('pitchBtn')
+const playBtn   = document.getElementById('playMIDI')
 
 let doDraw = false
 let pitchDrawId = 0
+
+/* ---------- Play/Pause icon toggle ---------- */
+
+const playIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>`
+const pauseIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>`
+
+function togglePlayIcon() {
+  const state = getCurrentState()
+  playBtn.innerHTML = state === 'play' ? pauseIcon : playIcon
+  playBtn.title = state === 'play' ? 'Pause' : 'Play'
+}
 
 /* ---------- File I/O ---------- */
 
@@ -232,6 +244,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* MIDI playback highlighting callback */
     const midiHighlightingHandler = function (event) {
+      if (event.type === 'stop') {
+        togglePlayIcon()
+        return
+      }
+
       let playingNotes = document.querySelectorAll('g.note.playing')
       for (let playingNote of playingNotes) playingNote.classList.remove('playing')
 
@@ -281,8 +298,12 @@ document.addEventListener('DOMContentLoaded', () => {
         let base64midi = tk.renderToMIDI()
         let midiString = 'data:audio/midi;base64,' + base64midi
         playMIDI(midiString)
+        togglePlayIcon()
       })
-    document.getElementById('stopMIDI').addEventListener('click', stopMIDI)
+    document.getElementById('stopMIDI').addEventListener('click', () => {
+      stopMIDI()
+      togglePlayIcon()
+    })
     document.getElementById('nextPage').addEventListener('click', nextPage)
     document.getElementById('prevPage').addEventListener('click', prevPage)
 

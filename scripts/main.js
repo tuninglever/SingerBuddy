@@ -239,7 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Microphone error:', err)
     })
 
-  verovio.module.onRuntimeInitialized = function () {
+  const initVerovio = function () {
     tk = new verovio.toolkit()
 
     /* MIDI playback highlighting callback */
@@ -412,5 +412,11 @@ document.addEventListener('DOMContentLoaded', () => {
     navigator.mediaDevices.addEventListener('devicechange', () => {
       listMicrophones()
     })
+  }
+
+  if (verovio.module.ready) {
+    initVerovio()
+  } else {
+    verovio.module.onRuntimeInitialized = initVerovio
   }
 })

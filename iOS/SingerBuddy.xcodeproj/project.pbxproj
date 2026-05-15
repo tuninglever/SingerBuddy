@@ -1,0 +1,426 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		12236CAC02AA4831BDA8A2114215E56C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5A01BE04344E1FA2C9BACE73C81542 /* ContentView.swift */; };
+		2060A6055567438BA84CDD5ADCB1ECC8 /* WebResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 14499B05916F4639B169327210A4B33F /* WebResources.bundle */; };
+		38D634768F5A42FEB7C9E4335D7914B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD81D278E9874DD286D29944B194CA42 /* Assets.xcassets */; };
+		3BE54A1A51A24B40A493B93A721AEA81 /* scripts in Resources */ = {isa = PBXBuildFile; fileRef = 5DF71120FEFF4DC081ADDD336CE58F25 /* scripts */; };
+		4A2F7B166D1F429B97233FBEE4DE4E81 /* soundfonts in Resources */ = {isa = PBXBuildFile; fileRef = 559D644B1C314B62B98BEB756960382A /* soundfonts */; };
+		4BC6E8F43E0442E19642B44C5D601FD1 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155CAF496DA44B429159F31519127CCF /* SwiftUI.framework */; };
+		685B0B06122E42819E1FF128B0457F1A /* SingerBuddyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 795BB53AF16148D59AB9850A596BC1B5 /* SingerBuddyApp.swift */; };
+		81B1650480104EBE97DE041E9E9213CA /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27ABA054C748469C91EB44ABDC4E0AF0 /* WebKit.framework */; };
+		8BEA44EB85CA492E94412ACC7F82CAF7 /* WebResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = E41FDE5BD77043A9823280AC69E731E7 /* WebResources.swift */; };
+		906B0879D5D241349DFA9D29B8B45D29 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B0541FEA4B4AD9AFC4E7259BC74F1F /* Foundation.framework */; };
+		AED9042D4173483888552BA701C2B180 /* scores in Resources */ = {isa = PBXBuildFile; fileRef = 3339C89C800D4653AB27E4A41845970C /* scores */; };
+		D716C5176A8D43948349B0F1D334D76F /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EF38F8EFFD480588CA056A941CF3A2 /* WebView.swift */; };
+		D8F8879E681F4CB7A4118A2FB3F3071D /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 3EC2837332724AC1851FAA58B8EF63E1 /* index.html */; };
+		DEA52FA476664175BB7653C85A9355DD /* WebViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94966D9841DD47F9AD1F90520D1974ED /* WebViewViewModel.swift */; };
+		ECFBF8E2FE284EEB9C379AE0B3E0F4CA /* favicon.ico in Resources */ = {isa = PBXBuildFile; fileRef = 52E90FFC00694FCA9294091166AAD8F1 /* favicon.ico */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F1929DE0BD0F4C2395E8ACBBB0FFC401 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 120AFC719F204E02B5A6E9C36EC0DD7F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C5B77D9AD75E47C3B9264CA298B23998;
+			remoteInfo = WebResources;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08EF38F8EFFD480588CA056A941CF3A2 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebView.swift; path = SingerBuddy/WebView.swift; sourceTree = SOURCE_ROOT; };
+		13B0541FEA4B4AD9AFC4E7259BC74F1F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		14499B05916F4639B169327210A4B33F /* WebResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WebResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		155CAF496DA44B429159F31519127CCF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		27ABA054C748469C91EB44ABDC4E0AF0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		3339C89C800D4653AB27E4A41845970C /* scores */ = {isa = PBXFileReference; lastKnownFileType = folder; name = scores; path = ../scores; sourceTree = SOURCE_ROOT; };
+		3EC2837332724AC1851FAA58B8EF63E1 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = index.html; path = ../index.html; sourceTree = SOURCE_ROOT; };
+		46683D406DD440C89660128DBC69419C /* SingerBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SingerBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52E90FFC00694FCA9294091166AAD8F1 /* favicon.ico */ = {isa = PBXFileReference; lastKnownFileType = image.ico; name = favicon.ico; path = ../favicon.ico; sourceTree = SOURCE_ROOT; };
+		559D644B1C314B62B98BEB756960382A /* soundfonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = soundfonts; path = ../soundfonts; sourceTree = SOURCE_ROOT; };
+		5DF71120FEFF4DC081ADDD336CE58F25 /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = scripts; path = ../scripts; sourceTree = SOURCE_ROOT; };
+		6E5A01BE04344E1FA2C9BACE73C81542 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = SingerBuddy/ContentView.swift; sourceTree = SOURCE_ROOT; };
+		795BB53AF16148D59AB9850A596BC1B5 /* SingerBuddyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SingerBuddyApp.swift; path = SingerBuddy/SingerBuddyApp.swift; sourceTree = SOURCE_ROOT; };
+		94966D9841DD47F9AD1F90520D1974ED /* WebViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebViewViewModel.swift; path = SingerBuddy/WebViewViewModel.swift; sourceTree = SOURCE_ROOT; };
+		AD7798536B924981ABEBE71C549DB0A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = SingerBuddy/Info.plist; sourceTree = SOURCE_ROOT; };
+		DD81D278E9874DD286D29944B194CA42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = SingerBuddy/Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		E2DF57E08A9E400A84222358873B8950 /* WebResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = WebResources.bundle; path = Products/WebResources.bundle; sourceTree = SOURCE_ROOT; };
+		E41FDE5BD77043A9823280AC69E731E7 /* WebResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebResources.swift; path = WebResources/WebResources.swift; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		19DD9F3ED93E498AA31C97901E90484F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BC6E8F43E0442E19642B44C5D601FD1 /* SwiftUI.framework in Frameworks */,
+				81B1650480104EBE97DE041E9E9213CA /* WebKit.framework in Frameworks */,
+				906B0879D5D241349DFA9D29B8B45D29 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBF1A5C781F24712B68232D3C5896767 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		41D23E7200D443D1B38B5AB175127242 = {
+			isa = PBXGroup;
+			children = (
+				70AFA3D919874F55A2BDE27F021A3D96 /* SingerBuddy */,
+				5C32C38A75E14718AB482B847B479576 /* WebResources */,
+				8EFA1C157C4042A98A5CCB9B35133B17,
+				BB917F0C2FB6EE9F002A7320 /* Recovered References */,
+			);
+			sourceTree = SOURCE_ROOT;
+		};
+		5C32C38A75E14718AB482B847B479576 /* WebResources */ = {
+			isa = PBXGroup;
+			children = (
+				3EC2837332724AC1851FAA58B8EF63E1 /* index.html */,
+				52E90FFC00694FCA9294091166AAD8F1 /* favicon.ico */,
+				3339C89C800D4653AB27E4A41845970C /* scores */,
+				5DF71120FEFF4DC081ADDD336CE58F25 /* scripts */,
+				559D644B1C314B62B98BEB756960382A /* soundfonts */,
+				E41FDE5BD77043A9823280AC69E731E7 /* WebResources.swift */,
+			);
+			name = WebResources;
+			sourceTree = SOURCE_ROOT;
+		};
+		70AFA3D919874F55A2BDE27F021A3D96 /* SingerBuddy */ = {
+			isa = PBXGroup;
+			children = (
+				795BB53AF16148D59AB9850A596BC1B5 /* SingerBuddyApp.swift */,
+				6E5A01BE04344E1FA2C9BACE73C81542 /* ContentView.swift */,
+				08EF38F8EFFD480588CA056A941CF3A2 /* WebView.swift */,
+				94966D9841DD47F9AD1F90520D1974ED /* WebViewViewModel.swift */,
+				AD7798536B924981ABEBE71C549DB0A2 /* Info.plist */,
+				DD81D278E9874DD286D29944B194CA42 /* Assets.xcassets */,
+			);
+			path = SingerBuddy;
+			sourceTree = SOURCE_ROOT;
+		};
+		8EFA1C157C4042A98A5CCB9B35133B17 = {
+			isa = PBXGroup;
+			children = (
+				46683D406DD440C89660128DBC69419C /* SingerBuddy.app */,
+				E2DF57E08A9E400A84222358873B8950 /* WebResources.bundle */,
+			);
+			sourceTree = SOURCE_ROOT;
+		};
+		BB917F0C2FB6EE9F002A7320 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				155CAF496DA44B429159F31519127CCF /* SwiftUI.framework */,
+				27ABA054C748469C91EB44ABDC4E0AF0 /* WebKit.framework */,
+				13B0541FEA4B4AD9AFC4E7259BC74F1F /* Foundation.framework */,
+				14499B05916F4639B169327210A4B33F /* WebResources.bundle */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7EAC0BA9509046CC971100E9C55BAA06 /* SingerBuddy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9711D95E5654FE5B0B8C8BDF6D28CB7 /* Build configuration list for PBXNativeTarget "SingerBuddy" */;
+			buildPhases = (
+				A977353F35054BD79EA275EE487FC5E6 /* Sources */,
+				19DD9F3ED93E498AA31C97901E90484F /* Frameworks */,
+				931E78A18ED04F979DDF39902740DEAD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BB4ACE0A2E74334A79716197F01F30C /* PBXTargetDependency */,
+			);
+			name = SingerBuddy;
+			productName = SingerBuddy;
+			productReference = 46683D406DD440C89660128DBC69419C /* SingerBuddy.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C5B77D9AD75E47C3B9264CA298B23998 /* WebResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D39F9BE89E54610962A7DFE2DE3B844 /* Build configuration list for PBXNativeTarget "WebResources" */;
+			buildPhases = (
+				7DA8831A45BA4D438239D5C1203D47D8 /* Sources */,
+				EBF1A5C781F24712B68232D3C5896767 /* Frameworks */,
+				62106CDBD199416196E64B5EC50876C4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WebResources;
+			productName = WebResources;
+			productReference = 14499B05916F4639B169327210A4B33F /* WebResources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		120AFC719F204E02B5A6E9C36EC0DD7F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2640;
+				LastUpgradeCheck = 2640;
+				TargetAttributes = {
+					7EAC0BA9509046CC971100E9C55BAA06 = {
+						LastSwiftMigration = 1700;
+					};
+					C5B77D9AD75E47C3B9264CA298B23998 = {
+						LastSwiftMigration = 1700;
+					};
+				};
+			};
+			buildConfigurationList = 303C17A3F3494CD8A3B757AB92D8BD4D /* Build configuration list for PBXProject "SingerBuddy" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 41D23E7200D443D1B38B5AB175127242;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7EAC0BA9509046CC971100E9C55BAA06 /* SingerBuddy */,
+				C5B77D9AD75E47C3B9264CA298B23998 /* WebResources */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		62106CDBD199416196E64B5EC50876C4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8F8879E681F4CB7A4118A2FB3F3071D /* index.html in Resources */,
+				ECFBF8E2FE284EEB9C379AE0B3E0F4CA /* favicon.ico in Resources */,
+				AED9042D4173483888552BA701C2B180 /* scores in Resources */,
+				3BE54A1A51A24B40A493B93A721AEA81 /* scripts in Resources */,
+				4A2F7B166D1F429B97233FBEE4DE4E81 /* soundfonts in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		931E78A18ED04F979DDF39902740DEAD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				38D634768F5A42FEB7C9E4335D7914B9 /* Assets.xcassets in Resources */,
+				2060A6055567438BA84CDD5ADCB1ECC8 /* WebResources.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7DA8831A45BA4D438239D5C1203D47D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BEA44EB85CA492E94412ACC7F82CAF7 /* WebResources.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A977353F35054BD79EA275EE487FC5E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				685B0B06122E42819E1FF128B0457F1A /* SingerBuddyApp.swift in Sources */,
+				12236CAC02AA4831BDA8A2114215E56C /* ContentView.swift in Sources */,
+				D716C5176A8D43948349B0F1D334D76F /* WebView.swift in Sources */,
+				DEA52FA476664175BB7653C85A9355DD /* WebViewViewModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8BB4ACE0A2E74334A79716197F01F30C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C5B77D9AD75E47C3B9264CA298B23998 /* WebResources */;
+			targetProxy = F1929DE0BD0F4C2395E8ACBBB0FFC401 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		16F47427A8974B88ACC1E0F01F2AF3A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FH8365S2R4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.singerbuddy.app.WebResources;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1F801D0620A24ADC92A90159AA364976 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		75E4A123006F4D84ABA5D105FE64155E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7F586CF4C770450689B3F4664E7F4196 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FH8365S2R4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SingerBuddy/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "(UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight)";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "(UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.singerbuddy.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9C1D5C90BBE24CB483FDB86CC87575D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FH8365S2R4;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SingerBuddy/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "(UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight)";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "(UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight)";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.singerbuddy.app;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DFB74322501E46EFA2938FCBFD8F11B2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FH8365S2R4;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.singerbuddy.app.WebResources;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		303C17A3F3494CD8A3B757AB92D8BD4D /* Build configuration list for PBXProject "SingerBuddy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F801D0620A24ADC92A90159AA364976 /* Debug */,
+				75E4A123006F4D84ABA5D105FE64155E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7D39F9BE89E54610962A7DFE2DE3B844 /* Build configuration list for PBXNativeTarget "WebResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16F47427A8974B88ACC1E0F01F2AF3A7 /* Debug */,
+				DFB74322501E46EFA2938FCBFD8F11B2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9711D95E5654FE5B0B8C8BDF6D28CB7 /* Build configuration list for PBXNativeTarget "SingerBuddy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C1D5C90BBE24CB483FDB86CC87575D3 /* Debug */,
+				7F586CF4C770450689B3F4664E7F4196 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 120AFC719F204E02B5A6E9C36EC0DD7F /* Project object */;
+}
